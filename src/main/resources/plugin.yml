@@ -1,0 +1,34 @@
+name: Essentials
+version: 1.0
+author: MelonigeMelone
+main: de.minersgames.melonigemelone.essentials.Essentials
+
+api-version: 1.8
+
+
+
+commands:
+  broadcast:
+    aliases: [bcast]
+  fly:
+  walkspeed:
+  flyspeed:
+  reboot:
+  gamemode:
+    aliases: [gm]
+  sethome:
+  delhome:
+  home:
+  homes:
+  tpa:
+  tpaccept:
+  tpahere:
+  tpdeny:
+  createwarp:
+  delwarp:
+  warp:
+  warps:
+  spawn:
+  setspawn:
+  tp:
+  tphere:
