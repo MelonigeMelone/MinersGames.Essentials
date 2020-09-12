@@ -111,7 +111,7 @@ public class GamemodeCommandExecutor implements CommandExecutor, TabCompleter {
                             if(p.hasPermission("essentials.command.gamemode.spectator.other")) {
                                 p.sendMessage(message.replaceAll("%gamemode%", "Zuschauer"));
                                 t.sendMessage(Messages.GAMEMODE_SET.getMessage().replaceAll("%gamemode%", "Zuschauer"));
-                                t.setGameMode(GameMode.SURVIVAL);
+                                t.setGameMode(GameMode.SPECTATOR);
                             } else {
                                 p.sendMessage(Messages.NO_PERM.getMessage());
                             }
