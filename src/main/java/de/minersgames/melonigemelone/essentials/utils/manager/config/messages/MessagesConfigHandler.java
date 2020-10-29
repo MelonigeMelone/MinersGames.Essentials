@@ -9,20 +9,14 @@ import java.io.IOException;
 
 public class MessagesConfigHandler {
 
-    public static File config = new File(Essentials.getInstance().getDataFolder(), "messages.yml");
-    public static FileConfiguration configFile = YamlConfiguration.loadConfiguration(config);
-
-    public static void save() {
-        try {
-
-            configFile.save(config);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public MessagesConfigHandler() {
+        createConfigFile();
     }
 
-    public static void createConfigFile() {
+    public File config = new File(Essentials.getInstance().getDataFolder(), "messages.yml");
+    public FileConfiguration configFile = YamlConfiguration.loadConfiguration(config);
+
+    public void createConfigFile() {
         if (!config.exists()) {
             configFile.options().header("Verdox VerdoxCore Config");
 
@@ -37,16 +31,26 @@ public class MessagesConfigHandler {
         }
     }
 
-    public static String getString(String key) {
+    public String getString(String key) {
         return configFile.getString(key);
     }
 
 
-    public static String getMessages(Messages messages) {
+    public String getMessages(Messages messages) {
         String input = configFile.getString("MESSAGE." + messages.name());
         input = input.replaceAll("&", "§");
         return input;
 
+    }
+
+    private void save() {
+        try {
+
+            configFile.save(config);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

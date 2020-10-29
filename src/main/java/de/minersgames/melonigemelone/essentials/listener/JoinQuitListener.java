@@ -1,7 +1,13 @@
 package de.minersgames.melonigemelone.essentials.listener;
 
+import de.minersgames.melonigemelone.essentials.Essentials;
+import de.minersgames.melonigemelone.essentials.utils.manager.GroupHandler;
+import de.minersgames.melonigemelone.essentials.utils.manager.PlayerHandler;
+import de.minersgames.melonigemelone.essentials.utils.manager.ScoreBoardHandler;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.HomeConfigHandler;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.SpawnConfigHandler;
+import de.minersgames.melonigemelone.essentials.utils.model.PlayerData;
+import de.minersgames.melonigemelone.essentials.utils.model.ScoreBoardData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,10 +20,15 @@ public class JoinQuitListener implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
 
-        HomeConfigHandler.loadHomePunkte(p);
+        Essentials.playerHandler.load(p);
 
-        if(SpawnConfigHandler.spawnSet()) {
-            p.teleport(SpawnConfigHandler.getSpawnLocation());
+        e.setJoinMessage(null);
+
+        //ScoreBoardHandler.setScoreBoard(p);
+
+
+        if(Essentials.spawnConfigHandler.spawnSet()) {
+            p.teleport(Essentials.spawnConfigHandler.getSpawnLocation());
         }
     }
 
@@ -25,7 +36,9 @@ public class JoinQuitListener implements Listener {
     public void onLeave(PlayerQuitEvent e) {
         Player p = e.getPlayer();
 
-        HomeConfigHandler.homePunkte.remove(p.getUniqueId());
+        e.setQuitMessage(null);
+
+        Essentials.playerHandler.remove(p);
 
     }
 }

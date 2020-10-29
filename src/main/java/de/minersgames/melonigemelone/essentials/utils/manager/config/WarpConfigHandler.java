@@ -15,12 +15,16 @@ import java.util.HashMap;
 
 public class WarpConfigHandler {
 
-    public static HashMap<String, Warp> warps = new HashMap<>();
+    public WarpConfigHandler() {
+        loadWarps();
+    }
 
-    private static File file = new File(Essentials.getInstance().getDataFolder() + "/WarpSystem", "warps.yml");
-    public static FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
+    public HashMap<String, Warp> warps = new HashMap<>();
 
-    public static void createWarp(String warpName, Location warpLocation, Material material) {
+    private File file = new File(Essentials.getInstance().getDataFolder() + "/WarpSystem", "warps.yml");
+    public FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
+
+    public void createWarp(String warpName, Location warpLocation, Material material) {
         String location = LocationSerialization.getStringFromLocation(warpLocation);
         cfg.set("WARPS."+ warpName.toLowerCase(),location + ";" + material.toString());
         save();
@@ -28,7 +32,7 @@ public class WarpConfigHandler {
         warps.put(warpName.toLowerCase(), new Warp(warpName.toLowerCase(), warpLocation, material));
     }
 
-    public static void deleteWarp(String warpName){
+    public void deleteWarp(String warpName){
 
         warps.remove(warpName.toLowerCase());
 
@@ -38,7 +42,7 @@ public class WarpConfigHandler {
         save();
     }
 
-    public static Location getWarpLocation(String warpName){
+    public Location getWarpLocation(String warpName){
         for(Warp warp : warps.values()) {
             if(warp.getName().toLowerCase().equalsIgnoreCase(warpName.toLowerCase())) {
                 return warp.getLocation();
@@ -47,14 +51,14 @@ public class WarpConfigHandler {
         return null;
     }
 
-    public static boolean isWarpExist(String warpName){
+    public boolean isWarpExist(String warpName){
         if (warps.keySet().contains(warpName.toLowerCase())) {
             return true;
         }
         return false;
     }
 
-    public static void loadWarps(){
+    public void loadWarps(){
         ArrayList<String> list = new ArrayList<>();
         if(cfg.isConfigurationSection("WARPS")){
             for(String key: cfg.getConfigurationSection("WARPS").getKeys(false)){
@@ -64,7 +68,7 @@ public class WarpConfigHandler {
         }
     }
 
-    public static void save() {
+    private void save() {
         try {
             cfg.save(file);
 

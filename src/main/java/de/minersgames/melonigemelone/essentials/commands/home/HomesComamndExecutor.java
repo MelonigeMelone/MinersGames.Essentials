@@ -1,10 +1,12 @@
 package de.minersgames.melonigemelone.essentials.commands.home;
 
+import de.minersgames.melonigemelone.essentials.Essentials;
 import de.minersgames.melonigemelone.essentials.utils.GUIBuilder;
 import de.minersgames.melonigemelone.essentials.utils.ItemStackBuilder;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.HomeConfigHandler;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.messages.Messages;
 import de.minersgames.melonigemelone.essentials.utils.model.Home;
+import de.minersgames.melonigemelone.essentials.utils.model.PlayerData;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -21,8 +23,9 @@ public class HomesComamndExecutor implements CommandExecutor {
             Player p = (Player) sender;
             if(p.hasPermission("essentials.command.homes")) {
                 ArrayList<ItemStack> items = new ArrayList<>();
-                if(!HomeConfigHandler.getHomePunkte(p).isEmpty()) {
-                    for (Home home : HomeConfigHandler.getHomePunkte(p)) {
+                PlayerData playerData = Essentials.playerHandler.get(p);
+                if(!playerData.getHomes().isEmpty()) {
+                    for (Home home : playerData.getHomes()) {
                         items.add(ItemStackBuilder.getItemStack(Messages.GUI_HOME_PREFIX.getMessage() + home.getName(), home.getMaterial()));
                     }
                     p.openInventory(GUIBuilder.createList(items, Messages.GUI_TITLE_HOMES.getMessage()));

@@ -1,6 +1,7 @@
 package de.minersgames.melonigemelone.essentials.commands.teleport;
 
-import de.minersgames.melonigemelone.essentials.utils.manager.TpaManager;
+import de.minersgames.melonigemelone.essentials.Essentials;
+import de.minersgames.melonigemelone.essentials.utils.manager.TpaHandler;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.messages.Messages;
 import de.minersgames.melonigemelone.essentials.utils.model.TpaModel;
 import org.bukkit.Bukkit;
@@ -20,7 +21,7 @@ public class TpaHereCommandExecutor implements CommandExecutor {
                     Player t = Bukkit.getPlayerExact(args[0]);
                     if(t != null) {
                         if(!t.getUniqueId().equals(p.getUniqueId())) {
-                            TpaManager.createTpa(p, t, TpaModel.Variant.TPAHERE);
+                            Essentials.tpaHandler.createTpa(p, t, TpaModel.Variant.TPAHERE);
                         } else {
                             p.sendMessage(Messages.NO_TPA_TO_YOURSELF.getMessage());
                         }

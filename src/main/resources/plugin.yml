@@ -5,6 +5,9 @@ main: de.minersgames.melonigemelone.essentials.Essentials
 
 api-version: 1.8
 
+softdepend: [Vault,PermissionsEX]
+
+
 
 
 commands:

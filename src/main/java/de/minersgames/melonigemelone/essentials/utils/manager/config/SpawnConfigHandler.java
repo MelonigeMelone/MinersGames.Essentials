@@ -11,12 +11,16 @@ import java.io.IOException;
 
 public class SpawnConfigHandler {
 
-    public static Location spawnLocation = null;
+    public SpawnConfigHandler() {
+        loadSpawn();
+    }
 
-    private static File file = new File(Essentials.getInstance().getDataFolder() + "/WarpSystem", "spawn.yml");
-    public static FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
+    public Location spawnLocation = null;
 
-    public static void setSpawn(Location spawnLoc) {
+    private File file = new File(Essentials.getInstance().getDataFolder() + "/WarpSystem", "spawn.yml");
+    public FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
+
+    public void setSpawn(Location spawnLoc) {
         String location = LocationSerialization.getStringFromLocation(spawnLoc);
         cfg.set("SPAWN", location);
         save();
@@ -24,7 +28,7 @@ public class SpawnConfigHandler {
         spawnLocation = spawnLoc;
     }
 
-    public static boolean spawnSet() {
+    public boolean spawnSet() {
         if(spawnLocation == null) {
             return false;
         }
@@ -32,11 +36,11 @@ public class SpawnConfigHandler {
         return true;
     }
 
-    public static Location getSpawnLocation() {
+    public Location getSpawnLocation() {
         return spawnLocation;
     }
 
-    public static void loadSpawn() {
+    public void loadSpawn() {
         if(file.exists()) {
             if(cfg.contains("SPAWN")) {
                 spawnLocation = LocationSerialization.getLocationFromString(cfg.getString("SPAWN"));
@@ -44,7 +48,7 @@ public class SpawnConfigHandler {
         }
     }
 
-    public static void save() {
+    private void save() {
         try {
             cfg.save(file);
 

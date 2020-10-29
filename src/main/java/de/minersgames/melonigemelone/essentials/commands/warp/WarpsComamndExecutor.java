@@ -1,5 +1,6 @@
 package de.minersgames.melonigemelone.essentials.commands.warp;
 
+import de.minersgames.melonigemelone.essentials.Essentials;
 import de.minersgames.melonigemelone.essentials.utils.GUIBuilder;
 import de.minersgames.melonigemelone.essentials.utils.ItemStackBuilder;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.HomeConfigHandler;
@@ -23,8 +24,8 @@ public class WarpsComamndExecutor implements CommandExecutor {
             Player p = (Player) sender;
             if(p.hasPermission("essentials.command.warps")) {
                 ArrayList<ItemStack> items = new ArrayList<>();
-                if(!WarpConfigHandler.warps.isEmpty()) {
-                    for (Warp warp : WarpConfigHandler.warps.values()) {
+                if(!Essentials.warpConfigHandler.warps.isEmpty()) {
+                    for (Warp warp : Essentials.warpConfigHandler.warps.values()) {
                         items.add(ItemStackBuilder.getItemStack(Messages.GUI_WARPS_PREFIX.getMessage() + warp.getName(), warp.getMaterial()));
                     }
                     p.openInventory(GUIBuilder.createList(items, Messages.GUI_TITLE_WARPS.getMessage()));

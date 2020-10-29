@@ -1,5 +1,6 @@
 package de.minersgames.melonigemelone.essentials.commands.spawn;
 
+import de.minersgames.melonigemelone.essentials.Essentials;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.SpawnConfigHandler;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.messages.Messages;
 import org.bukkit.command.Command;
@@ -14,7 +15,7 @@ public class SetSpawnCommandExecutor implements CommandExecutor {
         if(sender instanceof Player) {
             Player p = (Player) sender;
             if(p.hasPermission("essentials.command.setspawn")) {
-                SpawnConfigHandler.setSpawn(p.getLocation());
+                Essentials.spawnConfigHandler.setSpawn(p.getLocation());
                 p.sendMessage(Messages.SPAWN_SET.getMessage());
             } else {
                 p.sendMessage(Messages.NO_PERM.getMessage());

@@ -13,14 +13,14 @@ import org.bukkit.entity.Player;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class TpaManager {
+public class TpaHandler {
 
-    public static HashMap<UUID, TpaModel> tpaTargetCache = new HashMap<>();
-    public static HashMap<UUID, TpaModel> tpaApplicantCache = new HashMap<>();
+    public HashMap<UUID, TpaModel> tpaTargetCache = new HashMap<>();
+    public HashMap<UUID, TpaModel> tpaApplicantCache = new HashMap<>();
 
-    public static Essentials essentials = Essentials.getInstance();
+    public Essentials essentials = Essentials.getInstance();
 
-    public static void createTpa(Player applicant, Player target, TpaModel.Variant variant) {
+    public void createTpa(Player applicant, Player target, TpaModel.Variant variant) {
 
         if(!tpaApplicantCache.keySet().contains(applicant.getUniqueId())) {
             TpaModel tpaModel = new TpaModel(applicant.getUniqueId(), target.getUniqueId(), variant);
@@ -44,7 +44,7 @@ public class TpaManager {
 
     }
 
-    public static void accept(Player target) {
+    public void accept(Player target) {
         if(tpaTargetCache.keySet().contains(target.getUniqueId())) {
             TpaModel tpaModel = tpaTargetCache.get(target.getUniqueId());
             Player applicant = Bukkit.getPlayer(tpaModel.getApplicantUUID());
@@ -80,7 +80,7 @@ public class TpaManager {
         }
     }
 
-    public static void deny(Player target) {
+    public void deny(Player target) {
         if(tpaTargetCache.keySet().contains(target.getUniqueId())) {
             TpaModel tpaModel = tpaTargetCache.get(target.getUniqueId());
             Player applicant = Bukkit.getPlayer(tpaModel.getApplicantUUID());
@@ -108,7 +108,7 @@ public class TpaManager {
         }
     }
 
-    public static TextComponent create(Player applicant, Player target, TpaModel.Variant variant) {
+    public TextComponent create(Player applicant, Player target, TpaModel.Variant variant) {
 
         TextComponent aceept = new TextComponent();
         aceept.setText("Akzeptieren");

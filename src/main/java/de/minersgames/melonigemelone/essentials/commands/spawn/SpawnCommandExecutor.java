@@ -1,5 +1,6 @@
 package de.minersgames.melonigemelone.essentials.commands.spawn;
 
+import de.minersgames.melonigemelone.essentials.Essentials;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.SpawnConfigHandler;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.messages.Messages;
 import org.bukkit.command.Command;
@@ -13,8 +14,8 @@ public class SpawnCommandExecutor implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player) {
             Player p = (Player) sender;
-            if(SpawnConfigHandler.spawnSet()) {
-                p.teleport(SpawnConfigHandler.getSpawnLocation());
+            if(Essentials.spawnConfigHandler.spawnSet()) {
+                p.teleport(Essentials.spawnConfigHandler.getSpawnLocation());
                 p.sendMessage(Messages.SPAWN_TELEPORT.getMessage());
             } else {
                 p.sendMessage(Messages.SPAWN_NOT_SET.getMessage());

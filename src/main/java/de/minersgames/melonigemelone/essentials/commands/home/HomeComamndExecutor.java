@@ -1,7 +1,10 @@
 package de.minersgames.melonigemelone.essentials.commands.home;
 
+import de.minersgames.melonigemelone.essentials.Essentials;
+import de.minersgames.melonigemelone.essentials.utils.manager.PlayerHandler;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.HomeConfigHandler;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.messages.Messages;
+import de.minersgames.melonigemelone.essentials.utils.model.PlayerData;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -20,9 +23,10 @@ public class HomeComamndExecutor implements CommandExecutor, TabCompleter {
             if(p.hasPermission("essentials.command.home")) {
                 if(args.length == 1) {
                     String homeName = args[0];
-                    if(!HomeConfigHandler.getHomePunkte(p).isEmpty()) {
-                        if (HomeConfigHandler.isHomeExist(p, homeName)) {
-                            p.teleport(HomeConfigHandler.getHomeLocation(p, homeName));
+                    PlayerData playerData = Essentials.playerHandler.get(p);
+                    if(!playerData.getHomes().isEmpty()) {
+                        if (playerData.existsHome(homeName)) {
+                            playerData.teleportHome(homeName);
                             p.sendMessage(Messages.HOME_TELEPORT.getMessage().replaceAll("%home%", homeName));
                         } else {
                             p.sendMessage(Messages.HOME_NOT_EXISTS.getMessage());
@@ -46,9 +50,10 @@ public class HomeComamndExecutor implements CommandExecutor, TabCompleter {
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player) {
             Player p = (Player) sender;
-            if(!HomeConfigHandler.getHomePunkte(p).isEmpty()) {
+            PlayerData playerData = Essentials.playerHandler.get(p);
+            if(!playerData.getHomes().isEmpty()) {
                 if (args.length == 1) {
-                    return HomeConfigHandler.getPlayerHomes(p).stream().filter(s -> s.startsWith(args[0].toLowerCase())).collect(Collectors.toList());
+                    return playerData.getHomeNames().stream().filter(s -> s.startsWith(args[0].toLowerCase())).collect(Collectors.toList());
                 }
             }
         }

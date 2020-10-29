@@ -1,8 +1,10 @@
 package de.minersgames.melonigemelone.essentials.listener;
 
+import de.minersgames.melonigemelone.essentials.Essentials;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.HomeConfigHandler;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.WarpConfigHandler;
 import de.minersgames.melonigemelone.essentials.utils.manager.config.messages.Messages;
+import de.minersgames.melonigemelone.essentials.utils.model.PlayerData;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -30,9 +32,10 @@ public class InventoryClickListener implements Listener {
         if(is != null) {
             if(is.getType() != Material.AIR) {
                 if(is.getItemMeta().hasDisplayName()) {
+                    PlayerData playerData = Essentials.playerHandler.get(p);
                     String homeName = is.getItemMeta().getDisplayName().replaceAll(Messages.GUI_HOME_PREFIX.getMessage(), "");
-                    if (HomeConfigHandler.isHomeExist(p, homeName)) {
-                        p.teleport(HomeConfigHandler.getHomeLocation(p, homeName));
+                    if (playerData.existsHome(homeName)) {
+                        playerData.teleportHome(homeName);
                     }
                 }
             }
@@ -46,9 +49,9 @@ public class InventoryClickListener implements Listener {
             if(is.getType() != Material.AIR) {
                 if(is.getItemMeta().hasDisplayName()) {
                     String warpName = is.getItemMeta().getDisplayName().replaceAll(Messages.GUI_WARPS_PREFIX.getMessage(), "");
-                    if (WarpConfigHandler.isWarpExist(warpName)) {
+                    if (Essentials.warpConfigHandler.isWarpExist(warpName)) {
                         if(p.hasPermission("essentials.command.warp." + warpName) || p.hasPermission("essentials.command.warp.*")) {
-                            p.teleport(WarpConfigHandler.getWarpLocation(warpName));
+                            p.teleport(Essentials.warpConfigHandler.getWarpLocation(warpName));
                         } else {
                             p.sendMessage(Messages.NO_PERM.getMessage());
                         }

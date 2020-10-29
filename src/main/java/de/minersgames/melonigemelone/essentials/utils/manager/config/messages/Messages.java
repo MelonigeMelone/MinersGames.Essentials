@@ -1,5 +1,7 @@
 package de.minersgames.melonigemelone.essentials.utils.manager.config.messages;
 
+import de.minersgames.melonigemelone.essentials.Essentials;
+
 public enum Messages {
     PREFIX("&8[&eMiner-Games&8] "),
     ONLY_PLAYER("Der Befehl ist nur für Spieler!"),
@@ -76,7 +78,7 @@ public enum Messages {
     }
 
     public String getMessage() {
-        return MessagesConfigHandler.getMessages(this);
+        return Essentials.messagesConfigHandler.getMessages(this);
     }
 
     public String getDefaultMessage() {
