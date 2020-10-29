@@ -1,7 +1,7 @@
-package de.minersgames.melonigemelone.essentials.utils.manager;
+package de.minersgames.melonigemelone.essentials.utils.handler;
 
 import de.minersgames.melonigemelone.essentials.Essentials;
-import de.minersgames.melonigemelone.essentials.utils.manager.config.messages.Messages;
+import de.minersgames.melonigemelone.essentials.utils.handler.config.messages.Messages;
 import de.minersgames.melonigemelone.essentials.utils.model.TpaModel;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;

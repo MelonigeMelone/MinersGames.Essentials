@@ -1,4 +1,4 @@
-package de.minersgames.melonigemelone.essentials.utils.manager.config;
+package de.minersgames.melonigemelone.essentials.utils.handler.config;
 
 import de.minersgames.melonigemelone.essentials.Essentials;
 import de.minersgames.melonigemelone.essentials.utils.LocationSerialization;

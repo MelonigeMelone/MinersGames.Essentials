@@ -1,18 +1,14 @@
 package de.minersgames.melonigemelone.essentials.listener;
 
 import de.minersgames.melonigemelone.essentials.Essentials;
-import de.minersgames.melonigemelone.essentials.utils.manager.GroupHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.PlayerHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.ScoreBoardHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.config.HomeConfigHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.config.SpawnConfigHandler;
-import de.minersgames.melonigemelone.essentials.utils.model.PlayerData;
-import de.minersgames.melonigemelone.essentials.utils.model.ScoreBoardData;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import java.lang.management.BufferPoolMXBean;
 
 public class JoinQuitListener implements Listener {
 
@@ -24,7 +20,9 @@ public class JoinQuitListener implements Listener {
 
         e.setJoinMessage(null);
 
-        //ScoreBoardHandler.setScoreBoard(p);
+        for(Player t : Bukkit.getOnlinePlayers()) {
+            Essentials.scoreBoardHandler.sendScoreBoard(t);
+        }
 
 
         if(Essentials.spawnConfigHandler.spawnSet()) {

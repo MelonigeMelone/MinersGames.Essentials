@@ -1,7 +1,6 @@
 package de.minersgames.melonigemelone.essentials.listener;
 
 import de.minersgames.melonigemelone.essentials.Essentials;
-import de.minersgames.melonigemelone.essentials.utils.manager.PlayerHandler;
 import de.minersgames.melonigemelone.essentials.utils.model.PlayerData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

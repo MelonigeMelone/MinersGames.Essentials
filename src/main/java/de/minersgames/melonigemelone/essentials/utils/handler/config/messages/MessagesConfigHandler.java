@@ -1,4 +1,4 @@
-package de.minersgames.melonigemelone.essentials.utils.manager.config.messages;
+package de.minersgames.melonigemelone.essentials.utils.handler.config.messages;
 
 import de.minersgames.melonigemelone.essentials.Essentials;
 import org.bukkit.configuration.file.FileConfiguration;

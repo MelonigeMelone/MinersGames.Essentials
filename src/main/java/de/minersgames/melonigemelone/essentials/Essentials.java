@@ -16,19 +16,17 @@ import de.minersgames.melonigemelone.essentials.listener.ChatListener;
 import de.minersgames.melonigemelone.essentials.listener.InventoryClickListener;
 import de.minersgames.melonigemelone.essentials.listener.JoinQuitListener;
 import de.minersgames.melonigemelone.essentials.listener.UnknowCommandListener;
-import de.minersgames.melonigemelone.essentials.utils.manager.GroupHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.PlayerHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.ScoreBoardHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.TpaHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.config.HomeConfigHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.config.ScoreBoardConfigHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.config.SpawnConfigHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.config.WarpConfigHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.config.messages.MessagesConfigHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.config.groups.RankConfigHandler;
+import de.minersgames.melonigemelone.essentials.utils.handler.GroupHandler;
+import de.minersgames.melonigemelone.essentials.utils.handler.PlayerHandler;
+import de.minersgames.melonigemelone.essentials.utils.handler.ScoreBoardHandler;
+import de.minersgames.melonigemelone.essentials.utils.handler.TpaHandler;
+import de.minersgames.melonigemelone.essentials.utils.handler.config.HomeConfigHandler;
+import de.minersgames.melonigemelone.essentials.utils.handler.config.ScoreBoardConfigHandler;
+import de.minersgames.melonigemelone.essentials.utils.handler.config.SpawnConfigHandler;
+import de.minersgames.melonigemelone.essentials.utils.handler.config.WarpConfigHandler;
+import de.minersgames.melonigemelone.essentials.utils.handler.config.groups.RankConfigHandler;
+import de.minersgames.melonigemelone.essentials.utils.handler.config.messages.MessagesConfigHandler;
 import net.milkbowl.vault.permission.Permission;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -55,6 +53,9 @@ public class Essentials extends JavaPlugin {
 
         setupPermissions();
 
+        groupHandler = new GroupHandler();
+        playerHandler = new PlayerHandler();
+
         messagesConfigHandler = new MessagesConfigHandler();
         rankConfigHandler = new RankConfigHandler();
         homeConfigHandler = new HomeConfigHandler();
@@ -62,8 +63,6 @@ public class Essentials extends JavaPlugin {
         spawnConfigHandler = new SpawnConfigHandler();
         warpConfigHandler = new WarpConfigHandler();
 
-        groupHandler = new GroupHandler();
-        playerHandler = new PlayerHandler();
         scoreBoardHandler = new ScoreBoardHandler();
         tpaHandler = new TpaHandler();
 

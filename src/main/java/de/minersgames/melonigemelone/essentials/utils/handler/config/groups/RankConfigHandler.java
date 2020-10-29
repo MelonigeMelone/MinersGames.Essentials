@@ -1,9 +1,8 @@
-package de.minersgames.melonigemelone.essentials.utils.manager.config.groups;
+package de.minersgames.melonigemelone.essentials.utils.handler.config.groups;
 
 import de.minersgames.melonigemelone.essentials.Essentials;
-import de.minersgames.melonigemelone.essentials.utils.manager.GroupHandler;
+import de.minersgames.melonigemelone.essentials.utils.handler.GroupHandler;
 import de.minersgames.melonigemelone.essentials.utils.model.Group;
-import net.milkbowl.vault.permission.Permission;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -58,7 +57,7 @@ public class RankConfigHandler {
 
             String sbDisplayName =   cfg.getString("GROUP." + key + ".ScoreBoard.DisplayName");
 
-            GroupHandler.loadedGroups.add(new Group(key,chatPrefix,chatSuffix,chatDisplayNameColors,chatFormat,tabPrefix,tabSuffix,tabRank,tabDisplayNameColors,sbDisplayName));
+            Essentials.groupHandler.loadedGroups.add(new Group(key,chatPrefix,chatSuffix,chatDisplayNameColors,chatFormat,tabPrefix,tabSuffix,tabRank,tabDisplayNameColors,sbDisplayName));
         }
     }
 

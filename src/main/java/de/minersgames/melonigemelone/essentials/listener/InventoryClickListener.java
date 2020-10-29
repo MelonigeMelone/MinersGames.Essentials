@@ -1,9 +1,7 @@
 package de.minersgames.melonigemelone.essentials.listener;
 
 import de.minersgames.melonigemelone.essentials.Essentials;
-import de.minersgames.melonigemelone.essentials.utils.manager.config.HomeConfigHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.config.WarpConfigHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.config.messages.Messages;
+import de.minersgames.melonigemelone.essentials.utils.handler.config.messages.Messages;
 import de.minersgames.melonigemelone.essentials.utils.model.PlayerData;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

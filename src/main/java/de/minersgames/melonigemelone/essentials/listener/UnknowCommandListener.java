@@ -1,6 +1,6 @@
 package de.minersgames.melonigemelone.essentials.listener;
 
-import de.minersgames.melonigemelone.essentials.utils.manager.config.messages.Messages;
+import de.minersgames.melonigemelone.essentials.utils.handler.config.messages.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

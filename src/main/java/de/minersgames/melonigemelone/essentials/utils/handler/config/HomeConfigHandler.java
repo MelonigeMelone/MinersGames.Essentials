@@ -1,4 +1,4 @@
-package de.minersgames.melonigemelone.essentials.utils.manager.config;
+package de.minersgames.melonigemelone.essentials.utils.handler.config;
 
 import de.minersgames.melonigemelone.essentials.Essentials;
 import de.minersgames.melonigemelone.essentials.utils.LocationSerialization;
@@ -12,9 +12,7 @@ import org.bukkit.entity.Player;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 public class HomeConfigHandler {
 

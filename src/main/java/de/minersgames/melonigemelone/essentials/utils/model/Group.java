@@ -1,10 +1,7 @@
 package de.minersgames.melonigemelone.essentials.utils.model;
 
-import de.minersgames.melonigemelone.essentials.utils.manager.GroupHandler;
-import org.bukkit.Bukkit;
-import org.bukkit.scoreboard.Scoreboard;
-
-import java.util.List;
+import de.minersgames.melonigemelone.essentials.Essentials;
+import de.minersgames.melonigemelone.essentials.utils.handler.GroupHandler;
 
 public class Group {
 
@@ -35,9 +32,9 @@ public class Group {
         this.tabDisplayNames = tabDisplayNames;
         this.sbDislayName = sbDislayName;
 
-        GroupHandler.scoreboard.registerNewTeam(tabRank);
-        GroupHandler.scoreboard.getTeam(tabRank).setPrefix(tabPrefix);
-        GroupHandler.scoreboard.getTeam(tabRank).setSuffix(tabSuffix);
+        Essentials.groupHandler.scoreboard.registerNewTeam(tabRank);
+        Essentials.groupHandler.scoreboard.getTeam(tabRank).setPrefix(tabPrefix);
+        Essentials.groupHandler.scoreboard.getTeam(tabRank).setSuffix(tabSuffix);
     }
 
     public String getName() {

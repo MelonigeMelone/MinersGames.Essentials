@@ -1,8 +1,7 @@
 package de.minersgames.melonigemelone.essentials.commands.teleport;
 
 import de.minersgames.melonigemelone.essentials.Essentials;
-import de.minersgames.melonigemelone.essentials.utils.manager.TpaHandler;
-import de.minersgames.melonigemelone.essentials.utils.manager.config.messages.Messages;
+import de.minersgames.melonigemelone.essentials.utils.handler.config.messages.Messages;
 import de.minersgames.melonigemelone.essentials.utils.model.TpaModel;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

@@ -1,5 +1,6 @@
-package de.minersgames.melonigemelone.essentials.utils.manager;
+package de.minersgames.melonigemelone.essentials.utils.handler;
 
+import de.minersgames.melonigemelone.essentials.Essentials;
 import de.minersgames.melonigemelone.essentials.utils.model.PlayerData;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -21,11 +22,11 @@ public class PlayerHandler {
     }
 
     public void load(Player p) {
-        PlayerData playerData = new PlayerData(p, GroupHandler.getGroup(p));
+        PlayerData playerData = new PlayerData(p, Essentials.groupHandler.getGroup(p));
         loadedPlayerData.add(playerData);
 
         String team = playerData.getGroup().getTabRank();
-        Scoreboard scoreboard = GroupHandler.scoreboard;
+        Scoreboard scoreboard = Essentials.groupHandler.scoreboard;
 
         scoreboard.getTeam(team).addPlayer(p);
 
