@@ -1,13 +1,16 @@
 package de.minersgames.melonigemelone.essentials.listener;
 
 import de.minersgames.melonigemelone.essentials.Essentials;
+import net.minecraft.server.v1_8_R3.EntityPlayer;
 import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import javax.swing.table.TableStringConverter;
 import java.lang.management.BufferPoolMXBean;
 
 public class JoinQuitListener implements Listener {
@@ -24,6 +27,8 @@ public class JoinQuitListener implements Listener {
             Essentials.scoreBoardHandler.sendScoreBoard(t);
         }
 
+        Essentials.tablistHandler.sendTablist(p);
+        //Essentials.tablistHandler.changeName("§eTest", p);
 
         if(Essentials.spawnConfigHandler.spawnSet()) {
             p.teleport(Essentials.spawnConfigHandler.getSpawnLocation());

@@ -16,14 +16,8 @@ import de.minersgames.melonigemelone.essentials.listener.ChatListener;
 import de.minersgames.melonigemelone.essentials.listener.InventoryClickListener;
 import de.minersgames.melonigemelone.essentials.listener.JoinQuitListener;
 import de.minersgames.melonigemelone.essentials.listener.UnknowCommandListener;
-import de.minersgames.melonigemelone.essentials.utils.handler.GroupHandler;
-import de.minersgames.melonigemelone.essentials.utils.handler.PlayerHandler;
-import de.minersgames.melonigemelone.essentials.utils.handler.ScoreBoardHandler;
-import de.minersgames.melonigemelone.essentials.utils.handler.TpaHandler;
-import de.minersgames.melonigemelone.essentials.utils.handler.config.HomeConfigHandler;
-import de.minersgames.melonigemelone.essentials.utils.handler.config.ScoreBoardConfigHandler;
-import de.minersgames.melonigemelone.essentials.utils.handler.config.SpawnConfigHandler;
-import de.minersgames.melonigemelone.essentials.utils.handler.config.WarpConfigHandler;
+import de.minersgames.melonigemelone.essentials.utils.handler.*;
+import de.minersgames.melonigemelone.essentials.utils.handler.config.*;
 import de.minersgames.melonigemelone.essentials.utils.handler.config.groups.RankConfigHandler;
 import de.minersgames.melonigemelone.essentials.utils.handler.config.messages.MessagesConfigHandler;
 import net.milkbowl.vault.permission.Permission;
@@ -41,11 +35,13 @@ public class Essentials extends JavaPlugin {
     public static ScoreBoardConfigHandler scoreBoardConfigHandler;
     public static SpawnConfigHandler spawnConfigHandler;
     public static WarpConfigHandler warpConfigHandler;
+    public static TablistConfigHandler tablistConfigHandler;
 
     public static GroupHandler groupHandler;
     public static PlayerHandler playerHandler;
     public static ScoreBoardHandler scoreBoardHandler;
     public static TpaHandler tpaHandler;
+    public static TablistHandler tablistHandler;
 
     @Override
     public void onEnable() {
@@ -55,6 +51,7 @@ public class Essentials extends JavaPlugin {
 
         groupHandler = new GroupHandler();
         playerHandler = new PlayerHandler();
+        tablistHandler = new TablistHandler();
 
         messagesConfigHandler = new MessagesConfigHandler();
         rankConfigHandler = new RankConfigHandler();
@@ -62,6 +59,8 @@ public class Essentials extends JavaPlugin {
         scoreBoardConfigHandler = new ScoreBoardConfigHandler();
         spawnConfigHandler = new SpawnConfigHandler();
         warpConfigHandler = new WarpConfigHandler();
+        tablistConfigHandler = new TablistConfigHandler();
+
 
         scoreBoardHandler = new ScoreBoardHandler();
         tpaHandler = new TpaHandler();

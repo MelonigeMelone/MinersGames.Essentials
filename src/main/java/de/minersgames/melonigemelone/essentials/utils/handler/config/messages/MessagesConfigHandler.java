@@ -18,7 +18,7 @@ public class MessagesConfigHandler {
 
     public void createConfigFile() {
         if (!config.exists()) {
-            configFile.options().header("Verdox VerdoxCore Config");
+            configFile.options().header("Messsage File");
 
             for (Messages e : Messages.values()) {
                 configFile.addDefault("MESSAGE." + e.name(), e.getDefaultMessage());

@@ -1,5 +1,7 @@
 package de.minersgames.melonigemelone.essentials.utils.model;
 
+import org.bukkit.scoreboard.Team;
+
 import java.util.List;
 
 public class ScoreBoardData {
@@ -7,6 +9,7 @@ public class ScoreBoardData {
     private boolean enabled;
     private String displayName;
     private List<String> lines;
+    private List<Team> teams;
 
     public ScoreBoardData(boolean enabled, String displayName, List<String> lines) {
         this.enabled = enabled;
@@ -36,5 +39,13 @@ public class ScoreBoardData {
 
     public void setLines(List<String> lines) {
         this.lines = lines;
+    }
+
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
     }
 }
