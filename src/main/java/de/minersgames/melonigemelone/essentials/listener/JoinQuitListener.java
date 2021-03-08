@@ -1,9 +1,7 @@
 package de.minersgames.melonigemelone.essentials.listener;
 
 import de.minersgames.melonigemelone.essentials.Essentials;
-import net.minecraft.server.v1_8_R3.EntityPlayer;
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

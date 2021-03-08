@@ -53,12 +53,7 @@ public class ScoreBoardHandler {
             String team = data.getGroup().getTabRank();
 
             sb.getTeam(team).addPlayer(data.getPlayer());
-
-            //data.getPlayer().setDisplayName(sb.getTeam(team).getPrefix() + data.getTabDisplayName() + sb.getTeam(team).getSuffix());
-            //data.getPlayer().setDisplayName(data.getTabDisplayName());
         }
-
-        //p.setPlayerListName(playerData.getTabDisplayName());
         p.setScoreboard(sb);
 
 

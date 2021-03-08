@@ -53,7 +53,7 @@ public class TpaHandler {
                 if (applicant.isOnline()) {
 
                     applicant.sendMessage(Messages.TPA_ACCEPTED.getMessage().replaceAll("%player%", target.getDisplayName()));
-                    applicant.playSound(applicant.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
+                    applicant.playSound(applicant.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1, 1 );
 
                     if (tpaModel.getVariant().equals(TpaModel.Variant.TPA)) {
                         applicant.teleport(target);
